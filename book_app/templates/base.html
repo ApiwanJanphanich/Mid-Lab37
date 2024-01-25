@@ -112,9 +112,22 @@
     <div class="container ">
       {% include 'msg.html' %}
       {% comment %} {% include "msg.html" %} {% endcomment %} 
-      {% block content%} 
-      {% include "drug_data.html" %}
-      {% endblock %}
+
+{% block content %}
+  <div class="container">
+    {% for book_type in book_types %}
+      <div class="card">
+        <img src="{{ book_type.photo.url }}" class="card-img-top" alt="{{ book_type.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ book_type.name }}</h5>
+          <p class="card-text">{{ book_type.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+
     </div>
   </body>
 </html>

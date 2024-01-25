@@ -38,3 +38,11 @@ class book_manga(models.Model):
     photo = models.ImageField()
     def __str__(self):
         return f"{self.name}"
+    
+class BookType(models.Model):
+  id = models.AutoField(primary_key=True)
+  name = models.CharField(max_length=255)
+  description = models.CharField(max_length=255)
+  photo = models.ImageField()
+  def __str__(self):
+    return f"{self.name}"

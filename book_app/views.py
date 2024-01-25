@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import render
 from .models import book_type 
+from .models import BookType
 
 # Create your views here.
 def home(request):
@@ -45,6 +46,6 @@ def register_view(request):
 
 
 
-def booktype(request):
-    book_types = booktype.objects.all()  # ดึงข้อมูลจากฐานข้อมูล
+def index(request):
+    book_types = BookType.objects.all()
     return render(request, 'base.html', {'book_types': book_types})
