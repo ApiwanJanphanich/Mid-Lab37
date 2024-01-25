@@ -69,8 +69,6 @@
             </li>
             
             <!-- Dropdown Menu -->
-            
-       
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -95,8 +93,8 @@
                   แก้ไขประเภทข้อมูล</a></li>
               </ul>
             </li>
-           
             <!-- End Dropdown Menu -->
+            
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="logout">ออกจากระบบ</a>
@@ -111,22 +109,9 @@
         </div>
       </div>
     </nav>
-    {% block content %}
-  <div class="row">
-    {% for book_type in book_types %}
-      <div class="col-md-4">
-        <div class="card">
-          <img src="{{ book_type.photo.url }}" class="card-img-top" alt="{{ book_type.name }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ book_type.name }}</h5>
-            <p class="card-text">{{ book_type.description }}</p>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-{% endblock %}
-
-
+    <div class="container ">
+      {% include 'msg.html' %}
+      {% block content%}{% endblock %}
+    </div>
   </body>
-</html> 
+</html>
