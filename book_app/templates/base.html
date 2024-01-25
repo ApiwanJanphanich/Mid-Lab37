@@ -111,7 +111,10 @@
     </nav>
     <div class="container ">
       {% include 'msg.html' %}
-      {% block content%}{% endblock %}
+      {% comment %} {% include "msg.html" %} {% endcomment %} 
+      {% block content%} 
+      {% include "drug_data.html" %}
+      {% endblock %}
     </div>
   </body>
 </html>
