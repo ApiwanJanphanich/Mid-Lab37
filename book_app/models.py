@@ -10,6 +10,8 @@ class d_type(models.Model):
 class book_type(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
     photo = models.ImageField()
+    def __str__(self):
+        return f"{self.name}"
     

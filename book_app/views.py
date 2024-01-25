@@ -3,6 +3,9 @@ from .models import *
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.shortcuts import render
+from .models import book_type 
+
 # Create your views here.
 def home(request):
     return render(request,'base.html')
@@ -159,3 +162,8 @@ def report_a(request):
     show_type = d_type.objects.all() 
     context  = {"type" : show_type,"uesr" : show_types} 
     return render(request,'report_a.html',context) 
+
+
+def booktype(request):
+    book_types = BookType.objects.all()  # ดึงข้อมูลจากฐานข้อมูล
+    return render(request, 'base.html', {'book_types': book_types})
